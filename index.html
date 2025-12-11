@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carregando...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('fundo-natal.png') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .loader-box {
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background: #e0e0e0;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 20px;
+            height: 25px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #e600b8;
+            border-radius: 20px;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .percent-text {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #e600b8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader-box">
+        <h1 style="color:#e600b8;font-size:32px;font-weight:900;margin-bottom:10px;font-family:Arial, Helvetica, sans-serif;">
+    MEGA FEIRÃO<br>Promoção de Natal
+</h1>
+        <h2>Carregando...</h2>
+
+        <div class="progress-bar">
+            <div id="progress" class="progress-fill"></div>
+        </div>
+
+        <div id="percent" class="percent-text">0%</div>
+
+        <a href="https://limpabrasil-eng.github.io/uio/inicio/" class="link-btn" style="display:block;margin-top:25px;background:#e600b8;color:white;padding:15px 0;border-radius:30px;font-size:18px;font-weight:bold;text-decoration:none;">Acessar Agora</a>
+
+    </div>
+
+    <script>
+        let percent = 0;
+        const bar = document.getElementById("progress");
+        const text = document.getElementById("percent");
+
+        const loading = setInterval(() => {
+            percent++;
+            bar.style.width = percent + "%";
+            text.innerText = percent + "%";
+
+            if (percent >= 100) {
+                clearInterval(loading);
+                // redirecionamento removido // redireciona
+            }
+        }, 40); // velocidade
+    </script>
+
+</body>
+</html>
+
+
+
